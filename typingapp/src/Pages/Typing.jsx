@@ -35,7 +35,8 @@ export function Typing() {
     const [average, setAverage] = useState(0);
     const [min, setMin] = useState(0);
     const [total, setTotal] = useState(0);
-    const [timer, setTimer] = useState(0);
+    const [timer, setTimer] = useState(300); // 5 minutes in seconds
+
     const [isTyping, setIsTyping] = useState(false);
     const id = useRef();
     const attempts = useRef(0);
@@ -75,15 +76,21 @@ export function Typing() {
 
     const handleInputClick = () => {
         if (!startTimeRef.current) {
-            startTimeRef.current = Date.now();
-            const timerInterval = setInterval(() => {
-                const currentTime = Date.now();
-                const elapsedTime = Math.floor((currentTime - startTimeRef.current) / 1000);
-                setTimer(elapsedTime);
-            }, 1000);
-            return () => clearInterval(timerInterval);
+          startTimeRef.current = Date.now();
+          const timerInterval = setInterval(() => {
+            const currentTime = Date.now();
+            const elapsedTime = Math.floor((currentTime - startTimeRef.current) / 1000);
+            const remainingTime = Math.max(timer - elapsedTime, 0); // Ensure remaining time doesn't go below 0
+            setTimer(remainingTime);
+      
+            if (remainingTime === 0) {
+              clearInterval(timerInterval);
+            }
+          }, 1000);
+          return () => clearInterval(timerInterval);
         }
-    };
+      };
+      
 
     const handleInputChange = e => {
         setInput(e.target.value);
@@ -121,13 +128,14 @@ export function Typing() {
         const hours = Math.floor(time / 3600);
         const minutes = Math.floor((time % 3600) / 60);
         const seconds = time % 60;
-
+      
         const formattedHours = String(hours).padStart(2, "0");
         const formattedMinutes = String(minutes).padStart(2, "0");
         const formattedSeconds = String(seconds).padStart(2, "0");
-
+      
         return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-    };
+      };
+      
 
     return (
         <div className="main">
@@ -135,7 +143,7 @@ export function Typing() {
             <div className="timer">{formatTime(timer)}</div>
             <div className="SecondDiv">
                 <div class="card-body h-30  card-header main_ques" >
-                    <h5 >{question}</h5>
+                    <h5 style={{paddingTop:"10px"}}>{question}</h5>
 
                 </div>
                 <div className="next">
