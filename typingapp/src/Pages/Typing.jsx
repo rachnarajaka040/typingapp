@@ -63,17 +63,20 @@ export function Typing() {
         setQuestion(prev => Q);
     }, [number]);
 
+    
+
+
     useEffect(() => {
         const interval = setInterval(() => {
-            words.current = words.current + char;
-            let avgWPM = min > 0 ? Math.floor(words.current / min) : 0;
-            setAverage(prev => avgWPM);
+            const avgWPM = min > 0 ? Math.floor((words.current / (min / 60)) * 10) / 10 : 0; // Calculate average WPM based on words
+            setAverage(avgWPM);
             setMin(prev => prev + 1);
-            setTotal(prev => prev + char);
         }, 10000);
         return () => clearInterval(interval);
     }, []);
-
+    
+    
+    
     const handleInputClick = () => {
         if (!startTimeRef.current) {
           startTimeRef.current = Date.now();
@@ -92,10 +95,9 @@ export function Typing() {
       };
       
 
-    const handleInputChange = e => {
+      const handleInputChange = e => {
         setInput(e.target.value);
-        setChar(prev => prev + 1);
-
+    
         if (!isTyping) {
             setIsTyping(true);
             clearTimeout(typingTimeoutRef.current);
@@ -103,26 +105,29 @@ export function Typing() {
                 setIsTyping(false);
             }, 2000);
         }
-
+    
         const currentQuestion = question.toLowerCase();
         const currentInput = e.target.value.toLowerCase();
-        const currentInputLength = currentInput.length;
-
+        const currentInputWords = currentInput.trim().split(/\s+/).filter(word => word !== '').length; // Counting non-empty words
+    
         let accuracy = 0;
-        for (let i = 0; i < currentInputLength; i++) {
+        for (let i = 0; i < currentInput.length; i++) {
             if (currentQuestion[i] === currentInput[i]) {
                 accuracy++;
             }
         }
-
-        const currentAccuracy = (accuracy / currentInputLength) * 100;
+    
+        const currentAccuracy = (accuracy / currentInput.length) * 100;
         setAnsStatus(`Accuracy: ${currentAccuracy.toFixed(2)}%`);
-
+    
         if (currentInput === currentQuestion) {
-            setChar(prev => prev + currentInputLength);
-            setWords(prev => prev + 1);
+            setChar(prev => prev + currentInput.length);
+            setWords(prev => prev + currentInputWords);
         }
     };
+    
+    
+    
 
     const formatTime = time => {
         const hours = Math.floor(time / 3600);
