@@ -1,12 +1,10 @@
 import './App.css';
-import {Link} from 'react-router-dom';
+import { Typing } from './Pages/Typing';
 
 function App() {
   return (
     <div >
-    <button>
-      <Link to="/typing">Proceed To Game</Link>
-    </button>
+    <Typing/>
     </div>
   );
 }
