@@ -5,7 +5,7 @@ import { getSettings } from "../redux/Settings/Actions";
 import { useNavigate } from "react-router-dom";
 
 const Settings = () => {
-  const [timer, setTimer] = useState();
+  const [timer, setTimer] = useState(0);
   const [displaytext, setDisplaytext] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
