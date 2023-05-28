@@ -1,38 +1,316 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins&display=swap");
+
+/* Global CSS */
+* {
+  font-family:'Times New Roman', Times, serif;
+}
+
+body
+{
+    background-image: url("https://images.pexels.com/photos/1375261/pexels-photo-1375261.jpeg?cs=srgb&dl=pexels-donatello-trisolino-1375261.jpg&fm=jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+    
+    
+}
+ 
+h2 {
+  font-family: "Mochiy Pop One", sans-serif;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* Navbar */
+.nav {
+  
+  background-color: rgb(220, 9, 9); 
+  color:white;
+  padding: 0.5rem 1.5rem;
+  margin:auto;
+  width: 50%;
+  margin-top: 10%;
+
+  
+}
+.touch{
+  text-align: center;
+}
+.settings{
+  text-align: center;
+  color: white;
+  margin-left:42%;
+  display: flex;
+  font-size: 30px;
+}
+.nav-icon {
+  display: none;
+}
+
+.time{
+  color:rgb(220, 9, 9); 
+}
+
+
+.button-background {
+  border-radius: 25px;
+  background-color: #e8f2ff;
+  padding: 0.5rem 1.5rem;
+}
+
+/* Keys to Display */
+.keys-to-type {
+  display: flex;
+  width: 25%;
+  margin: auto;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.keys-to-type > h1 {
+  padding: 1rem;
+}
+
+/* input-box for User Keys */
+.input-box {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0.5rem;
+}
+
+.input-box > input {
+  width: 95%;
+  border: none;
+  padding: 1rem;
+  font-size: 50px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* form-login */
+
+.form-login {
+  padding: 32px 17px;
+  background-color: #fff;
+  width: 30%;
+  margin: 60px auto;
+  border-radius: 17px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-login h2 {
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form-login input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  margin: 12px auto;
+}
+
+.form-login button {
+  width: 100%;
+  padding: 8px 12px;
+  margin: 12px auto;
+  border-radius: 12px;
+  background-color: rgb(220, 9, 9); 
+  color: #fff;
+  margin-top: 1rem;
+}
+
+.form-login button:hover {
+  cursor: pointer;
+  background-color: rgb(91, 25, 25);
+}
+
+
+/* Metrics for User Keys */
+.metrics {
+  width: 80%;
   display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+  padding: 30px 0.5rem;
+}
+
+.metrics span {
+  color: #111112;
+}
+
+.items{
+  color: rgb(220, 9, 9); 
+}
+/* Home Page CSS */
+.start-button-div-0 .start-button-css {
+  display: flex;
+  width: 30%;
+  margin: 30px auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-button-div {
+  display: flex;
+  width: 505;
+  margin: 30px auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Button CSS */
+.start-button-css {
+  background-color: rgb(220, 9, 9);
+  border-radius: 6px;
+  border-width: 0;
+  box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
+    rgba(50, 50, 93, 0.1) 0 2px 5px 0, rgba(0, 0, 0, 0.07) 0 1px 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-size: 100%;
+  height: 44px;
+  line-height: 1.15;
+  margin: 0 1rem;
+  outline: none;
+  padding: 0 25px;
+  text-align: center;
+}
+
+.start-button-css:disabled {
+  cursor: default;
+}
+
+.start-button-css:focus {
+  box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
+    rgba(50, 50, 93, 0.2) 0 6px 15px 0, rgba(0, 0, 0, 0.1) 0 2px 2px 0,
+    rgba(50, 151, 211, 0.3) 0 0 0 4px;
+}
+
+.start-button-css:hover {
+  color: #fff;
+  background-color: rgb(220, 9, 9);
+}
+
+
+.results {
+  display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 80%;
+  margin: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.results > h1 {
+  text-align: center;
+  width: 20%;
+ color: white;
+  border-radius:5px;
+  background-color: rgb(220, 9, 9);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 740px) {
+  .nav {
+    font-size: 12px;
+    padding-left: 8px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .nav div:nth-child(2),
+  .nav div:nth-child(3) {
+    display: none;
+  }
+
+  .nav h2 {
+    display: none;
+  }
+
+  .nav-icon {
+    display: block;
+    font-size: 1.5rem;
+  }
+
+  .instruction-box {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    padding-bottom: 1rem;
+    width: 80%;
+    margin: auto;
+  }
+
+  .instruction-box ol {
+    padding-right: 17px;
+  }
+
+  .instruction-box h1 {
+    text-align: center;
+    font-size: 17px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .instruction-box li {
+    font-size: 12px;
+    margin: 1rem auto;
+  }
+  .instruction-box a button {
+    width: 100%;
+    margin: 1rem auto 1.5rem;
+  }
+
+  .metrics {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+  }
+
+  .keys-to-type {
+    width: 70%;
+    margin: auto;
+  }
+
+  .keys-to-type > h1 {
+    font-size: 25px;
+    font-weight: bold;
+    color: #405cf5;
+    padding: 8px;
+  }
+
+  .input-box {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+   
+  }
+
+  .input-box > input {
+    width: 95%;
+   
+    padding: 12px;
+    font-size: 21px;
+    text-align: center;
+  }
+
+  .time{
+    color:rgb(220, 9, 9);
+  }
+
+  .start-button-div {
+    margin: 30px auto;
+    font-size: 12px;
   }
 }

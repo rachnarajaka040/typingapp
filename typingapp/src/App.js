@@ -1,10 +1,12 @@
-import './App.css';
-import { Typing } from './Pages/Typing';
+import "./App.css";
+import Navbar from "./component/Navbar";
+import AllRoutes from "./component/AllRoutes";
 
 function App() {
   return (
-    <div >
-    <Typing/>
+    <div className="App">
+      <Navbar />
+      <AllRoutes />
     </div>
   );
 }

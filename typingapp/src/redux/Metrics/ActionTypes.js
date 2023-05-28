@@ -1,0 +1,4 @@
+export const COUNT_ACCURACY = "COUNT_ACCURACY";
+export const COUNT_SPEED = "COUNT_SPEED";
+export const COUNT_MISTAKES = "COUNT_MISTAKES";
+export const GET_METRICS = "GET_METRICS";
